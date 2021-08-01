@@ -5,6 +5,7 @@
     --color-banner: #FBDFDB;
     --color-author: #777777;
     --color-footer: #EEEEEE;
+    --color-text: #444444;
 }
 
 * {
@@ -110,6 +111,40 @@ body {
     font-size: 14px;
     line-height: 16px;
     color: var(--color-author);
+}
+
+/* ======= ABOUT PAGE ========= */
+
+.menu-links .about-link {
+    font-weight: bold;
+}
+
+.page-content {
+    margin: 50px 0;
+}
+
+.page-content .text h1 {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.page-content .text p {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--color-text);
+    margin-top: 20px;
+}
+
+.page-content .text h2 {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 30px;
+}
+
+/*======== REVENUE PAGE =======*/
+
+.menu-links .revenue-link {
+    font-weight: bold;
 }
 
 .footer-content {
