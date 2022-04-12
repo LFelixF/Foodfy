@@ -1,0 +1,67 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <main>
+        <div class="revenue page-content">
+            <div class="revenue-banner">
+                <div class="revenue-img">
+                    <img src="{{item.img_url}}" alt="{{item.title}}">
+                </div>
+
+                <div class="revenue-info">
+                    <h1>{{item.title}}</h1>
+                    <p>{{item.author}}</p>
+                </div>
+            </div>
+
+            <div class="revenue-content">
+                <div class="revenue-topic">
+                    <div class="topic-title">
+                        <h2>Ingredientes</h2>
+                        <div class="hide-show">
+                            <p>ESCONDER</p>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <ul>
+                            {% for ingredient in item.ingredients %}
+                                <li>{{ingredient}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="revenue-topic">
+                    <div class="topic-title">
+                        <h2>Modo de preparo</h2>
+                        <div class="hide-show">
+                            <p>ESCONDER</p>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <ol>
+                            {% for step in item.preparation %}
+                                <li>{{step}}</li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="revenue-topic">
+                    <div class="topic-title">
+                        <h2>Informações adicionais</h2>
+                        <div class="hide-show">
+                            <p>ESCONDER</p>
+                        </div>
+                    </div>
+
+                    <div class="topic-content">
+                        <p>{{item.info}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

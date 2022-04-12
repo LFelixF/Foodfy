@@ -1,0 +1,63 @@
+{% extends "layout-admin.njk" %}
+
+{% block content %}
+<main>
+    <div class="title-show-revenue">
+        <h3>Receita: {{ revenue.title }}</h3>
+        <a href="/admin/revenues/{{revenue.id}}/edit">Editar receita</a>
+    </div>
+
+    <div class="revenue page-content">
+            <div class="revenue-banner">
+                <div class="revenue-img">
+                    <img src="{{revenue.img_url}}" alt="{{revenue.title}}">
+                </div>
+
+                <div class="revenue-info">
+                    <h1>{{revenue.title}}</h1>
+                    <p>{{revenue.author}}</p>
+                </div>
+            </div>
+
+            <div class="revenue-content">
+                <div class="revenue-topic">
+                    <div class="topic-title">
+                        <h2>Ingredientes</h2>
+                    </div>
+
+                    <div class="topic-content">
+                        <ul>
+                            {% for ingredient in revenue.ingredients %}
+                                <li>{{ingredient}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="revenue-topic">
+                    <div class="topic-title">
+                        <h2>Modo de preparo</h2>
+                    </div>
+
+                    <div class="topic-content">
+                        <ol>
+                            {% for step in revenue.preparation %}
+                                <li>{{step}}</li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="revenue-topic">
+                    <div class="topic-title">
+                        <h2>Informações adicionais</h2>
+                    </div>
+
+                    <div class="topic-content">
+                        <p>{{revenue.info}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+{% endblock content %}

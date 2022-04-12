@@ -7,19 +7,27 @@
     --color-footer: #EEEEEE;
     --color-text: #444444;
     --color-sub-text: #999999;
+    --color-button: #6558C3;
 }
 
 * {
     margin: 0;
     border: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    max-width: 940px;
-    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
     font-family: 'Roboto', sans-serif;
     color: var(--color-main);
+}
+
+.menu,
+main {
+    max-width: 940px;
+    margin: 0 auto;
 }
 
 .menu {
@@ -28,7 +36,8 @@ body {
     margin-top: 36px;
 }
 
-.menu .menu-img {
+.menu-admin .menu-img a,
+.menu .menu-img a{
     width: 91px;
     height: 27px;
     margin-right: 122px;
@@ -45,6 +54,10 @@ body {
 .menu .menu-links a:hover {
     font-weight: bold;
     transition: 100ms;
+}
+
+.menu .menu-links .active {
+    font-weight: bold;
 }
 
 .banner {
@@ -92,7 +105,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
-    margin: 20px 0 50px;
+    margin: 20px 0 0;
 }
 
 .card .card-img img {
@@ -154,6 +167,7 @@ body {
     width: 100%;
     height: 62px;
     right: 0;
+    bottom: -112px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,4 +258,181 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* LAYOUT ADMIN */
+.menu-admin {
+    background-color: var(--color-main);
+    width: 100%;
+    right: 0;
+    padding: 27px 0 26px;
+}
+
+.menu-admin .menu-img {
+    width: 940px;
+    margin: 0 auto;
+}
+
+/* ADMIN - INDEX */
+.title-section-admin {
+    margin-top: 50px;
+    font-size: 24px;
+}
+
+#cards-admin {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.card-admin {
+    display: flex;
+    align-items: center;
+}
+
+.card-img-admin {
+    width: 170px;
+    height: 80px;
+    border-radius: 8px;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-info-admin {
+    margin-left: 20px;
+}
+
+.card-info-admin p:nth-child(1){
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card-info-admin p:nth-child(2) {
+    font-size: 14px;
+    color: var(--color-author);
+    margin-bottom: 10px;
+}
+
+.card-info-admin button {
+    background: none;
+    color: var(--color-button);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ADMIN - FORM */
+.section-form {
+    position: relative;
+}
+
+form {
+    margin: 55px 0 60px;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-show-revenue,
+.form-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.title-show-revenue h3,
+.form-header h3 {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+#form-delete button[type="submit"],
+.title-show-revenue a,
+.form-header button[type="submit"] {
+    background-color: var(--color-button);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+}
+
+#form-delete button[type="submit"] {
+    right: 155px;
+    top: -3px;
+    background-color: red;
+}
+
+#form-delete button[type="submit"]:hover {
+    cursor: pointer;
+    background-color: rgb(255, 136, 0);
+}
+
+.title-show-revenue a:hover,
+.form-header button[type="submit"]:hover {
+    cursor: pointer;
+    background-color: red;
+    transition: 150ms;
+}
+
+.item {
+    margin-top: 30px;
+}
+
+.item label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item input,
+.item textarea {
+    display: block;
+}
+
+.item input,
+.item textarea {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 15px 20px;
+    width: 100%;
+    margin-top: 10px;
+    outline: none;
+}
+
+.item button {
+    font-size: 16px;
+    color: var(--color-button);
+    font-weight: bold;
+    background: none;
+    margin-top: 15px;
+}
+
+.card-info-admin button:hover,
+.item button:hover {
+    color: red;
+    cursor: pointer;
+    transition: 150ms;
+}
+
+.item button[type="button"] {
+    display: block;
+}
+
+textarea {
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+}
+
+/* ADMIN - SHOW */
+.title-show-revenue {
+    margin-top: 55px;
+}
+
+.title-show-revenue a {
+    text-decoration: none;
 }

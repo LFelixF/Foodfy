@@ -1,0 +1,43 @@
+{% extends "layout-admin.njk" %}
+
+{% block content %}
+<main>
+    <section class="section-form">
+        <form action="/admin/revenue" method="POST" id="form-create">
+            <div class="form-header">
+                <h3>Criando Receita</h3>
+                <button type="submit">Salvar receita</button>
+            </div>
+
+            {% include "admin/fields.njk" %}
+
+            <div class="item">
+                <div id="ingredients">
+                    <label for="new-ingredient">Ingredientes</label>
+                    <div class="ingredient">
+                        <input type="text" name="ingredients[]" id="new-ingredient">
+                    </div>
+                </div>
+                <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+                <button type="button" class="remove-ingredient">Remover ingrediente</button>
+            </div>
+
+            <div class="item">
+                <div id="steps">
+                    <label for="new-step">Modo de preparo</label>
+                    <div class="step">
+                        <input type="text" name="preparation[]" id="new-step">
+                    </div>
+                </div>
+                <button type="button" class="add-step">Adicionar novo passo</button>
+                <button type="button" class="remove-step">Remover passo</button>
+            </div>
+
+            <div class="item">
+                <label for="info">Informações adicionais</label>
+                <textarea name="info" id="info" rows="15"></textarea>
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock content %}

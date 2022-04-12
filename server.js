@@ -1,12 +1,15 @@
 const express = require("express")
 const nunjucks = require("nunjucks")
-const revenues = require("./data")
+const methodOverride = require("method-override")
+const routes = require("./routes")
 
 const server = express()
 
-server.listen(1000, () => {
-    console.log("server is running!")
-})
+server.set("view engine", "njk")
+server.use(express.static("public"))
+server.use(express.urlencoded({ extended: true }))
+server.use(methodOverride("_method"))
+server.use(routes)
 
 nunjucks.configure("views", {
     express: server,
@@ -14,35 +17,6 @@ nunjucks.configure("views", {
     noCache: true
 })
 
-server.set("view engine", "njk")
-server.use(express.static("public"))
-
-server.get("/", (req, res) => {
-    return res.render("home", {items: revenues})
-})
-
-server.get("/about", (req, res) => {
-    return res.render("about")
-})
-
-server.get("/revenues", (req, res) => {
-    return res.render("revenues", {items: revenues})
-})
-
-server.get("/revenue/:index", (req, res) => {
-    const index = req.params.index
-    const revenue = revenues
-    const pageError = "REVENUE"
-
-    if (!revenue[index]) {
-        return res.render("not-found", {item: pageError})
-    }
-
-    return res.render("revenue", {item: revenue[index]})
-})
-
-server.use((req, res) => {
-    const pageError = "PAGE"
-
-    res.status(404).render("not-found", {item: pageError})
+server.listen(1000, () => {
+    console.log("server is running!")
 })

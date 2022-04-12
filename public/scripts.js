@@ -1,3 +1,12 @@
+// MENU - LINKS
+const currentPage = window.location.pathname
+const links = document.querySelectorAll(".menu-links a")
+
+for(let link of links) {
+    if(currentPage.includes(link.getAttribute("href"))) link.classList.add("active")
+}
+
+// Page - Revenues
 const cards = document.querySelectorAll(".card")
 const revenueTopic = document.querySelectorAll(".revenue-topic")
 
@@ -9,6 +18,7 @@ for (let card of cards) {
     })
 }
 
+// Page - Revenue
 for (let topic of revenueTopic) {
     const hideShow = topic.querySelector(".hide-show")
     const content = topic.querySelector(".topic-content")
